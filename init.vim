@@ -11,9 +11,14 @@ noremap <C-K>	:tabn<CR>
 " Pluggins ------------------------------- {{{
 call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-sensible'
 Plug 'joshdick/onedark.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'dense-analysis/ale'
+Plug 'jeetsukumaran/vim-pythonsense'
+Plug 'liuchengxu/vista.vim'
 call plug#end()
 " }}}
 
@@ -82,4 +87,8 @@ augroup end
 
 " CoC -------------------------------- {{{
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" }}}
+
+" FZF -------------------------------- {{{
+noremap <C-P> :FZF<CR>
 " }}}
