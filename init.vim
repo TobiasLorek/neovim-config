@@ -134,3 +134,8 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " }}}
+
+" VimWiki ------------------------------- {{{
+let g:vimwiki_list = [{'path': '~/my_mess', 'syntax': 'markdown', 'ext': '.wiki'}]
+
+" }}}
