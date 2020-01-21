@@ -12,13 +12,15 @@ noremap <C-K>	:tabn<CR>
 call plug#begin('~/.config/nvim/plugged')
 Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-sensible'
 Plug 'joshdick/onedark.vim'
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'dense-analysis/ale'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'sheerun/vim-polyglot'
+Plug 'jeetsukumaran/vim-pythonsense'
 call plug#end()
 " }}}
 
@@ -138,4 +140,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " VimWiki ------------------------------- {{{
 let g:vimwiki_list = [{'path': '~/my_mess', 'syntax': 'markdown', 'ext': '.wiki'}]
 
+" }}}
+
+" FZF -------------------------------- {{{
+noremap <C-P> :FZF<CR>
 " }}}
