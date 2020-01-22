@@ -5,3 +5,4 @@ mkdir -p ./undo
 mkdir -p ./swap
 ln -s $(pwd)/coc ~/.config/coc
 ln -s $(pwd) ~/.config/nvim
+mkdir ~/my_mess 

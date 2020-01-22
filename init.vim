@@ -2,6 +2,8 @@
 " VIMRC
 noremap <leader>ev :tabnew $MYVIMRC<CR>
 noremap <leader>sv :source $MYVIMRC<CR>
+noremap <leader>cp :let @" = expand("%:p")<CR>
+
 
 noremap <space> za
 noremap <C-J>	:tabp<CR>
@@ -17,10 +19,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-sensible'
 Plug 'joshdick/onedark.vim'
 Plug 'dense-analysis/ale'
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
+Plug 'alok/notational-fzf-vim'
+Plug 'tpope/vim-unimpaired'
+
 call plug#end()
 " }}}
 
@@ -88,7 +92,24 @@ augroup end
 " }}}
 
 " CoC -------------------------------- {{{
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Snippets
+" Use <C-l> for trigger snippet expand.
+inoremap <C-l> <Plug>(coc-snippets-expand)
+"
+" " Use <C-j> for select text for visual placeholder of snippet.
+vnoremap <C-j> <Plug>(coc-snippets-select)
+"
+" " Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+"
+" " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+"
+" " Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -131,17 +152,19 @@ set statusline+=\ %{LinterStatus()}
 
 " }}}
 
-" UltiSnips ------------------------------- {{{
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" }}}
-
 " VimWiki ------------------------------- {{{
 let g:vimwiki_list = [{'path': '~/my_mess', 'syntax': 'markdown', 'ext': '.wiki'}]
-
+let g:vimwiki_table_mappins = 0
 " }}}
 
 " FZF -------------------------------- {{{
 noremap <C-P> :FZF<CR>
+" }}}
+
+" notational-velocity -------------------------------- {{{
+let g:nv_default_extension = '.wiki'
+let g:nv_main_directory = '~/my_mess'
+let g:nv_search_paths = ['~/my_mess']
+
+nnoremap <C-N> :NV<CR>
 " }}}
