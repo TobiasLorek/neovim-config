@@ -24,7 +24,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'alok/notational-fzf-vim'
 Plug 'tpope/vim-unimpaired'
-
+Plug 'tbabej/taskwiki'
+Plug 'powerman/vim-plugin-AnsiEsc'
 call plug#end()
 " }}}
 
@@ -155,6 +156,7 @@ set statusline+=\ %{LinterStatus()}
 " VimWiki ------------------------------- {{{
 let g:vimwiki_list = [{'path': '~/my_mess', 'syntax': 'markdown', 'ext': '.wiki'}]
 let g:vimwiki_table_mappins = 0
+let g:taskwiki_markup_syntax = 'markdown'
 " }}}
 
 " FZF -------------------------------- {{{
