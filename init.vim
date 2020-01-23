@@ -26,6 +26,7 @@ Plug 'alok/notational-fzf-vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tbabej/taskwiki'
 Plug 'powerman/vim-plugin-AnsiEsc'
+Plug 'dbridges/vim-markdown-runner'
 call plug#end()
 " }}}
 
@@ -157,6 +158,7 @@ set statusline+=\ %{LinterStatus()}
 let g:vimwiki_list = [{'path': '~/my_mess', 'syntax': 'markdown', 'ext': '.wiki'}]
 let g:vimwiki_table_mappins = 0
 let g:taskwiki_markup_syntax = 'markdown'
+nnoremap <leader><CR> :VimwikiFollowLink<CR>
 " }}}
 
 " FZF -------------------------------- {{{
@@ -170,3 +172,19 @@ let g:nv_search_paths = ['~/my_mess']
 
 nnoremap <C-N> :NV<CR>
 " }}}
+
+" Markdown-Runner ------------------------------- {{{
+augroup markdownrunner
+	autocmd!
+    autocmd FileType markdown nnoremap <buffer> <Leader>r :MarkdownRunner<CR>
+    autocmd FileType markdown nnoremap <buffer> <Leader>R :MarkdownRunnerInsert<CR>
+    autocmd FileType vimwiki nnoremap <buffer> <Leader>r :MarkdownRunner<CR>
+    autocmd FileType vimwiki nnoremap <buffer> <Leader>R :MarkdownRunnerInsert<CR>
+augroup end
+
+let g:markdown_runners = {}
+let g:markdown_runners['python'] = 'python3'
+" }}}
+
+
+
