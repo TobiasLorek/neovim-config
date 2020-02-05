@@ -123,6 +123,20 @@ function! s:show_documentation()
   endif
 endfunction
 
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+let g:coc_snippet_prev = '<s-ta>'
+
 " }}}
 
 " ALE ------------------------------------------- {{{
@@ -159,6 +173,7 @@ let g:vimwiki_list = [{'path': '~/my_mess', 'syntax': 'markdown', 'ext': '.wiki'
 let g:vimwiki_table_mappins = 0
 let g:taskwiki_markup_syntax = 'markdown'
 nnoremap <leader><CR> :VimwikiFollowLink<CR>
+
 " }}}
 
 " FZF -------------------------------- {{{
