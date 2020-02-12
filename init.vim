@@ -4,6 +4,7 @@ noremap <leader>ev :tabnew $MYVIMRC<CR>
 noremap <leader>sv :source $MYVIMRC<CR>
 noremap <leader>cp :let @" = expand("%:p")<CR>
 
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 noremap <space> za
 noremap <C-J>	:tabp<CR>
@@ -97,19 +98,19 @@ augroup end
 
 " Snippets
 " Use <C-l> for trigger snippet expand.
-inoremap <C-l> <Plug>(coc-snippets-expand)
+inoremap <tab> <Plug>(coc-snippets-expand)
 "
 " " Use <C-j> for select text for visual placeholder of snippet.
-vnoremap <C-j> <Plug>(coc-snippets-select)
+" vnoremap <C-j> <Plug>(coc-snippets-select)
 "
 " " Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_next = '<tab>'
 "
 " " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
+let g:coc_snippet_prev = '<s-tab>'
 "
 " " Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
+imap <tab> <Plug>(coc-snippets-expand-jump)
 
 "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
@@ -200,6 +201,4 @@ augroup end
 let g:markdown_runners = {}
 let g:markdown_runners['python'] = 'python3'
 " }}}
-
-
 
